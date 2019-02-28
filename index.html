@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>The command line</title>
+
+	<link rel="stylesheet" href="revealjs/css/reveal.css">
+	<!-- <link rel="stylesheet" href="revealjs/css/theme/white.css"> -->
+	<link rel="stylesheet" href="revealjs/css/theme/blood.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="revealjs/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'revealjs/css/print/pdf.css' : 'revealjs/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<style>
+		div.footer {
+			margin-top: 600px;
+			font-size: 20px;
+		}
+
+		.reveal .slides section .fragment.step-fade-in-then-out {
+			opacity: 0;
+			display: none;
+		}
+
+		.reveal .slides section .fragment.step-fade-in-then-out.current-fragment {
+			opacity: 1;
+			display: inline;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<!-- title author  -->
+			<section>
+				<h3>Using the command line and plain-text representations</h3>
+				<p>Diego Sandoval</p>
+				<p>Kigali, 05.03.2019</p>
+			</section>
+
+			<section>
+				<section data-markdown style="text-align:left">
+					<textarea data-template>
+						* Graphical interfaces are great and extremely useful in many applications: windows managers, blender, ...
+						* When it comes to development, programming, system administration however, the command line is much more powerful and versatile
+					</textarea>
+				</section>
+				<section>
+					<h3>Motivation</h3>
+				</section>
+				<section data-markdown style="text-align:left">
+					<textarea data-template>
+					* Make a list of all your files in a given folder and email it to your friend.<br>
+					* Document the process for future reference
+					<pre class="bash"><code class="fragment fade-in">
+ls -1 > list.txt
+					</code></pre>
+						</textarea>
+				</section>
+				<section data-markdown style="text-align:left">
+					<textarea data-template>
+					* Count the number of pdfs in a given folder
+					* Document the process
+					<pre class="bash"><code class="fragment fade-in">
+ls *.pdf -1 | wc -l
+									</code></pre>
+							</textarea>
+				</section>
+				<section data-markdown style="text-align:left">
+					<textarea data-template>
+						* Find all the zip files in your home directory
+						<pre class="bash"><code class="fragment fade-in">
+find $HOME -iname "*.zip"
+										</code></pre>
+								</textarea>
+				</section>
+				<section data-markdown style="text-align:left">
+					<textarea data-template>
+							* Download all pdfs or mp3 from a given website
+							<pre class="bash"><code class="fragment fade-in">
+wget -A pdf,mp3 -r -l 1 -nd http://example.com
+											</code></pre>
+									</textarea>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h3>Why?</h3>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+					The command line is:
+
+					* much faster
+					* universal: can be understood by humans and machines
+					* easier to document (and to communicate)
+					* can be automated: 
+						*	scripts
+						*	repetitive tasks
+						*	periodic tasks: crontab
+						*	self-documented tasks, come back in one year time
+					* inline documentation, no need to memorize
+					</textarea>
+				</section>
+				
+				<section data-markdown>
+					<textarea data-template>
+							Structure<br>
+
+							command options arguments 
+							<pre class="bash"><code>
+ls folder --sort time -r
+cp file1 file2 dest
+cp -r folder1 folder2 dest
+									</code></pre>
+								</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+								It is quicker
+								<pre class="bash"><code>
+mount /mnt/usb && cp -r folder /mnt/usb && umount /mnt/usb 
+</code></pre>
+									</textarea>
+				</section>
+				<section data-markdown>
+						<textarea data-template>
+									Some devices do not have a display<br>
+									<img src="images/rpi.png" heigh="400">
+								</textarea>
+					</section>
+	
+
+				<section data-markdown>
+					<textarea data-template>
+						Do one thing and do it well
+						*	Redirection
+						* Pipes
+						* Logical operators				
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+							Self-contained documentation<br>
+							Example: installing pyviz<br>
+							<pre class="bash"><code>
+conda update conda
+conda create -n pyviz-tutorial python=3.6
+conda activate pyviz-tutorial
+conda install -c pyviz/label/dev pyviz
+pyviz examples
+cd pyviz-examples
+jupyter notebook					
+				</code></pre>
+				</textarea>
+				</section>
+			</section>
+			<section data-background-color="#ff8c00">
+				What kind of abilities or super powers would you like to acquire?
+			</section>
+		</div>
+	</div>
+
+	<script src="revealjs/lib/js/head.min.js"></script>
+	<script src="revealjs/js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			math: {
+				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+			},
+			dependencies: [
+				{ src: 'revealjs/plugin/math/math.js', async: true },
+				{ src: 'revealjs/plugin/markdown/marked.js' },
+				{ src: 'revealjs/plugin/markdown/markdown.js' },
+				{ src: 'revealjs/plugin/notes/notes.js', async: true },
+				{ src: 'revealjs/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+
+</html>
+
+<!-- TODO:
+Knowldege without education
+
+Followers 
+
+-->
