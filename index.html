@@ -88,12 +88,23 @@ find $HOME -iname "*.zip"
 				</section>
 				<section data-markdown style="text-align:left">
 					<textarea data-template>
-							* Download all pdfs or mp3 from a given website
+							* Download all pdf or mp3 files from a given website
 							<pre class="bash"><code class="fragment fade-in">
 wget -A pdf,mp3 -r -l 1 -nd http://example.com
 											</code></pre>
 									</textarea>
 				</section>
+				<section data-markdown style="text-align:left">
+						<textarea data-template>
+								* Count the number of lines in which the word "beauteous"
+								 appears in [Shakespeare's works](https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt)
+					
+								<pre class="bash"><code class="fragment fade-in">
+	wget https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt
+	grep beauteous t8.shakespeare.txt | wc -l
+												</code></pre>
+										</textarea>
+					</section>
 			</section>
 
 			<section>
@@ -101,9 +112,9 @@ wget -A pdf,mp3 -r -l 1 -nd http://example.com
 					<h3>Why?</h3>
 				</section>
 
-				<section data-markdown>
+				<section data-markdown style="font-size:25px">
 					<textarea data-template>
-					The command line is:
+					## The command line is:
 
 					* much faster
 					* universal: can be understood by humans and machines
@@ -113,7 +124,11 @@ wget -A pdf,mp3 -r -l 1 -nd http://example.com
 						*	repetitive tasks
 						*	periodic tasks: crontab
 						*	self-documented tasks, come back in one year time
-					* inline documentation, no need to memorize
+					* inline documentation, no need to memorize:
+						* last command 
+						* search backwards
+						* man-pages 
+						* command help
 					</textarea>
 				</section>
 				
@@ -138,7 +153,7 @@ mount /mnt/usb && cp -r folder /mnt/usb && umount /mnt/usb
 </code></pre>
 									</textarea>
 				</section>
-				<section data-markdown>
+				<section data-markdown 	>
 						<textarea data-template>
 									Some devices do not have a display<br>
 									<img src="images/rpi.png" heigh="400">
@@ -170,9 +185,6 @@ jupyter notebook
 				</code></pre>
 				</textarea>
 				</section>
-			</section>
-			<section data-background-color="#ff8c00">
-				What kind of abilities or super powers would you like to acquire?
 			</section>
 		</div>
 	</div>
