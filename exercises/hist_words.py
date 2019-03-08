@@ -12,13 +12,19 @@ z  **(100)
 Where each '*' represents 10 occurrences
 """
 
-# This file just opens the file, prints all the lines, and closes the file
-
 words = './data/dict.txt'
 
 fd = open(words, 'r')
 
+words = {}
+
 for line in fd:
-    print(line)
+    first_letter = line[0]
+    # continue the implementation
+
+for w in words:
+    if w >= 'a' and w <= 'z':
+        freq = words[w]
+        # continue the implementation
 
 fd.close()

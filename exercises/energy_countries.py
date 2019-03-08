@@ -25,7 +25,11 @@ DATABASE = 'data/energy_countries.csv'
 
 fd = open(DATABASE, 'r')
 
+countries = {}
+
 for line in fd:
+    # implement your code here
+
     # remove the end of line
     new_line = line[:-1]
 

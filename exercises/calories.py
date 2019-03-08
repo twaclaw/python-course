@@ -1,3 +1,12 @@
+"""Determine which elements are within your price and calories budget
+
+Given a price and a calories budget, determine which desserts are within this 
+budget.
+"""
+
+BUDGET_PRICE = 1.5
+BUDGET_CALORIES = 250 # calories
+
 desserts = {
     'frozen_yogurt': {
         'calories': 159,
@@ -37,4 +46,7 @@ desserts = {
     }
 }
 
-print(desserts)
+for dessert in desserts:
+    # implement your code here
+    pass # remove this line
+

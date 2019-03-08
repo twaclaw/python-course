@@ -16,7 +16,10 @@ if len(sys.argv) != 2:
 filename = sys.argv[1]
 fd = open(filename, 'r')
 
+# Implement your code here
+
 for line in fd:
+    # Implement your code here
     print(line)
 
 fd.close()
